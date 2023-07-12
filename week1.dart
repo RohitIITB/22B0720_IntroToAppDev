@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+
 void main() {
-  runApp(CounterApp());
+  runApp(Counter_App());
 }
-class CounterApp extends StatelessWidget {
+
+class Counter_App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Counter App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: CounterPage(),
     );
   }
 }
+
 class CounterPage extends StatefulWidget {
   @override
   _CounterPageState createState() => _CounterPageState();
 }
+
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
   void _incrementCounter() {
@@ -25,11 +29,13 @@ class _CounterPageState extends State<CounterPage> {
       _counter++;
     });
   }
+
   void _decrementCounter() {
     setState(() {
       _counter--;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +47,8 @@ class _CounterPageState extends State<CounterPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Counter Value:',
-              style: TextStyle(fontSize: 20),
+              'Counter is on :',
+              style: TextStyle(fontSize: 40),
             ),
             Text(
               '$_counter',
@@ -51,21 +57,19 @@ class _CounterPageState extends State<CounterPage> {
           ],
         ),
       ),
-
       floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           FloatingActionButton(
             onPressed: _decrementCounter,
-            tooltip: 'Decrement',
-            child: Icon(Icons.remove),
+            tooltip: 'to decrease the value of counter',
+            child: Icon(Icons.remove_circle_outline_outlined),
           ),
           SizedBox(width: 10),
           FloatingActionButton(
               onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: Icon(Icons.add)
-          ),
+              tooltip: 'to increase the value of counter',
+              child: Icon(Icons.add_circle_outline_outlined)),
         ],
       ),
     );
